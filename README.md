@@ -25,9 +25,9 @@ we can work on soon.
 
 ## Related links
 
-Prepackaged cljs4excel: https://cljs4excel.com/ (No proper page yet).
+Prepackaged cljs4excel: https://www.cljs4excel.com/.
 
-Office Add-ins: https://msdn.microsoft.com/en-us/library/office/fp123503.aspx.
+Office Add-ins: https://msdn.microsoft.com/en-us/library/office/jj220060.aspx.
 
 ## License
 

@@ -46,7 +46,7 @@
   [id fn] (.addBindingFromSelection js/app id (partial binding->fn fn)))
 
 (defn get-all-bindings
-  "Called the given function with a vector of all current binding ids."
+  "Call the given function with a vector of all current binding ids."
   [fn] (.getAllBindings js/app (partial js->fn fn)))
 
 (defn get-binding-details
@@ -67,7 +67,7 @@
   [id fn] (.addBindingDataEvent js/app id fn))
 
 (defn remove-binding
-  "Removes an existing binding. Any data within the binding remains in sheet."
+  "Remove an existing binding. Any data within the binding remains in sheet."
   [id] (.removeBinding js/app id))
 
 (defn remove-binding-data-event
