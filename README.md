@@ -15,10 +15,15 @@ To add the XML manifest from a shared location in Excel, please see below link:
 
 https://msdn.microsoft.com/en-us/library/office/fp123503.aspx
 
+Consider this as an early alpha/proof of concept release at the moment. There
+are plenty of things I'd like to improve, so I'll put up a list of things
+we can work on soon.
+
 ## Related links
 
-Prepackaged cljs4excel: https://cljs4excel.com/
-Office Add-ins: https://msdn.microsoft.com/en-us/library/office/jj220060.aspx
+Prepackaged cljs4excel: https://cljs4excel.com/ (No proper page yet).
+
+Office Add-ins: https://msdn.microsoft.com/en-us/library/office/jj220060.aspx.
 
 ## License
 
