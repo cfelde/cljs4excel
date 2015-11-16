@@ -23,7 +23,7 @@ URL, and using localhost is also fine.
 
 Note that the manifest XML must always be placed on some network share for
 Excel to accept it. However, this network share can simply be a shared folder
-locally, as long as you stick to UNC paths (for example: \\WIN-AABBCCDDEE\Share\cljs4excel.xml).
+locally, as long as you stick to UNC paths (for example: \\\\WIN-AABBCCDDEE\Share\cljs4excel.xml).
 No need for any advanced external file server. It's also technically possible
 to have the SourceLocation pointing to a network share instead of a web server
 URL, but I've had issues making that work.
