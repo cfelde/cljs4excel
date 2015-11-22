@@ -18,6 +18,19 @@ var app = (function () {
         $('#notification-message').hide();
       });
 
+      $('#hide-scratchpad').click(function () {
+        $('#scratchpad').hide();
+        $('#console').show();
+      });
+
+      $('#eval-scratchpad').click(function () {
+        var content = $('#scratchpad-content').val();
+        cljs4excel.core.eval(true, true, content);
+
+        $('#scratchpad').hide();
+        $('#console').show();
+      });
+
       // After initialization, expose a common notification function
       app.showNotification = function (header, text) {
         $('#notification-message-header').text(header);
@@ -26,21 +39,28 @@ var app = (function () {
       };
 
       app.loadScript = function (url) {
-        // TODO: This should all be improved to deal with loading errors, etc..
         var id = new Date().getTime();
         var ifr = $('<iframe/>', {
           id: 'sl-' + id,
           src: url,
           style: 'display:none',
           load: function () {
-            var lines = $(this).contents().text().split(/\r?\n/);
-            lines.forEach(function (element, index, array) {
-              cljs_bootstrap.core.read_eval_print(element, function (success, result) { });
-            });
+            var content = $(this).contents().text();
+            cljs4excel.core.eval(false, true, content);
             ifr.remove();
           }
         });
         $('body').append(ifr);
+      };
+
+      app.showScratchpad = function () {
+        $('#console').hide();
+        $('#scratchpad').show();
+      };
+
+      app.hideScratchpad = function () {
+        $('#scratchpad').hide();
+        $('#console').show();
       };
 
       app.getSelection = function (callback) {
@@ -53,7 +73,7 @@ var app = (function () {
             }
           }
         );
-      }
+      };
 
       app.setSelection = function (matrix) {
         Office.context.document.setSelectedDataAsync(
@@ -65,10 +85,9 @@ var app = (function () {
             }
           }
         );
-      }
+      };
 
       app.addBindingFromNamedItem = function (name, id, callback) {
-        // TODO Testing of named item
         Office.context.document.bindings.addFromNamedItemAsync(name,
           Office.BindingType.Matrix,
           { id: id },
@@ -80,7 +99,7 @@ var app = (function () {
             }
           }
         );
-      }
+      };
 
       app.addBindingFromPrompt = function (id, callback) {
         Office.context.document.bindings.addFromPromptAsync(Office.BindingType.Matrix,
@@ -93,7 +112,7 @@ var app = (function () {
             }
           }
         );
-      }
+      };
 
       app.addBindingFromSelection = function (id, callback) {
         Office.context.document.bindings.addFromSelectionAsync(Office.BindingType.Matrix,
@@ -106,7 +125,7 @@ var app = (function () {
             }
           }
         );
-      }
+      };
 
       app.getAllBindings = function (callback) {
         Office.context.document.bindings.getAllAsync(function (result) {
@@ -116,7 +135,7 @@ var app = (function () {
             app.showNotification('Error:', result.error.message);
           }
         });
-      }
+      };
 
       app.getBindingDetails = function (id, callback) {
         Office.context.document.bindings.getByIdAsync(id, function (result) {
@@ -126,7 +145,7 @@ var app = (function () {
             app.showNotification('Error:', result.error.message);
           }
         });
-      }
+      };
 
       app.getBindingData = function (id, callback) {
         Office.context.document.bindings.getByIdAsync(id, function (result1) {
@@ -142,7 +161,7 @@ var app = (function () {
             app.showNotification('Error:', result1.error.message);
           }
         });
-      }
+      };
 
       app.setBindingData = function (id, matrix) {
         Office.context.document.bindings.getByIdAsync(id, function (result1) {
@@ -156,7 +175,7 @@ var app = (function () {
             app.showNotification('Error:', result1.error.message);
           }
         });
-      }
+      };
 
       app.addBindingDataEvent = function (id, callback) {
         Office.context.document.bindings.getByIdAsync(id, function (result1) {
@@ -172,7 +191,7 @@ var app = (function () {
             app.showNotification('Error:', result1.error.message);
           }
         });
-      }
+      };
 
       app.removeBinding = function (id) {
         Office.context.document.bindings.releaseByIdAsync(id, function (result) {
@@ -180,7 +199,7 @@ var app = (function () {
             app.showNotification('Error:', result.error.message);
           }
         });
-      }
+      };
 
       app.removeBindingDataEvent = function (id) {
         Office.context.document.bindings.getByIdAsync(id, function (result1) {
@@ -194,7 +213,7 @@ var app = (function () {
             app.showNotification('Error:', result1.error.message);
           }
         });
-      }
+      };
     };
 
     return app;
@@ -207,6 +226,7 @@ var app = (function () {
     Office.initialize = function (reason) {
       $(document).ready(function () {
         app.initialize();
+        cljs4excel.core.init();
       });
     };
   })();

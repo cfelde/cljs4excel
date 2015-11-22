@@ -46,7 +46,7 @@
   [id fn] (.addBindingFromSelection js/app id (partial binding->fn fn)))
 
 (defn get-all-bindings
-  "Call the given function with a vector of all current binding ids."
+  "Called the given function with a vector of all current binding ids."
   [fn] (.getAllBindings js/app (partial js->fn fn)))
 
 (defn get-binding-details
@@ -67,11 +67,21 @@
   [id fn] (.addBindingDataEvent js/app id fn))
 
 (defn remove-binding
-  "Remove an existing binding. Any data within the binding remains in sheet."
+  "Removes an existing binding. Any data within the binding remains in sheet."
   [id] (.removeBinding js/app id))
 
 (defn remove-binding-data-event
   "Unsubscribe to data changes on binding id."
   [id] (.removeBindingDataEvent js/app id))
+
+(defn show-sp
+  "Show scratchpad editor"
+  []
+  (.showScratchpad js/app))
+
+(defn hide-sp
+  "Hide scratchpad editor"
+  []
+  (.hideScratchpad js/app))
 
 (println "cljs4excel ready..")
