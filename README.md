@@ -14,12 +14,17 @@ If you just want to try it out I'd recommend following the steps as shown on
 https://www.cljs4excel.com. When you have that up and running the steps to run
 with all local files would be these:
 
-1: Take the manifest file you downloaded earlier and change the SourceLocation
+1: Build the project with:
+
+    lein cljsbuild once
+    lein resource
+
+2: Take the manifest file in target/cljs4excel.xml and change the SourceLocation
 so that it points to a URL you're in control of.
 
-2: Take the files in the app folder in this project repository and place them
-at the location of the URL you selected. There's no need to use https for this
-URL, and using localhost is also fine.
+3: Take the files and folders in the target folder and place them at the location
+of the URL you selected. There's no need to use https for this URL, and using
+localhost is also fine.
 
 Note that the manifest XML must always be placed on some network share for
 Excel to accept it. However, this network share can simply be a shared folder
@@ -35,6 +40,16 @@ https://msdn.microsoft.com/en-us/library/office/fp123503.aspx
 Consider this as an early alpha/proof of concept release at the moment. There
 are plenty of things I'd like to improve, so I'll put up a list of things
 we can work on soon.
+
+## Change log
+
+v0.1:
+* Simple proof of concept
+
+v0.2:
+* Changed to a proper leiningen project
+* Use replumb for REPL
+* Added scratchpad editor, open it with (show-sp) in REPL
 
 ## Related links
 
