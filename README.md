@@ -50,6 +50,8 @@ v0.2:
 * Changed to a proper leiningen project
 * Use replumb for REPL
 * Added scratchpad editor, open it with (show-sp) in REPL
+* Included replumb work-around for (require ..)
+* Added (boot ..) function, used to eval content within sheet document
 
 ## Related links
 
