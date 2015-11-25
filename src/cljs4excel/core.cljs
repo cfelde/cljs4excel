@@ -4,6 +4,8 @@
 
 (def *console*)
 
+(defn fake-load-fn! [_ cb])
+
 (defn handle-result!
   [console result]
   (let [write-fn (if (replumb/success? result) console/write-return! console/write-exception!)]
@@ -11,7 +13,7 @@
 
 (defn cljs-read-eval-print!
   [console user-input]
-  (replumb/read-eval-call (partial handle-result! console) user-input))
+  (replumb/read-eval-call {:load-fn! fake-load-fn!} (partial handle-result! console) user-input))
 
 (defn cljs-console-prompt!
   [console]
@@ -50,7 +52,7 @@
             (if (and
                   (or (nil? result) (:success? result))
                   (not (empty? expressions)))
-              (replumb/read-eval-call (partial eval (rest expressions)) (first expressions))))
+              (replumb/read-eval-call {:load-fn! fake-load-fn!} (partial eval (rest expressions)) (first expressions))))
 
            (handler
             [result]
@@ -59,7 +61,7 @@
             (if (:success? result)
               (eval (split-expressions (->> (:value result) rest butlast (apply str))) nil)))]
 
-    (replumb/read-eval-call handler (str "'(" s ")")))))
+    (replumb/read-eval-call {:load-fn! fake-load-fn!} handler (str "'(" s ")")))))
 
 (defn init
   []

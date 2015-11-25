@@ -1,3 +1,8 @@
+; The content of this file is dynamically loaded as if it was typed into
+; the REPL directly. The cljs4excel.core namespace is already required at this
+; point. When the output of the final println at the bottom is shown in the
+; REPL console you can assume that all the content loaded successfully.
+
 (defn js->fn
   "Take a function and JSON, convert JSON to a Clojure structure and pass it to the function."
   [fn js] (fn (js->clj js)))
@@ -83,5 +88,23 @@
   "Hide scratchpad editor"
   []
   (.hideScratchpad js/app))
+
+(defn boot
+  "Eval the content on specified reference. The reference is either a named item
+  or A1 style reference. If no reference is given the current selection is used."
+  ([]
+   (letfn [(eval-content
+            [content]
+            (doall (map (partial cljs4excel.core/eval true true) (flatten content))))]
+    (get-selection eval-content)))
+  ([named-item]
+   (letfn [(eval-content
+            [binding-data]
+            (remove-binding (:id binding-data))
+            (doall (map (partial cljs4excel.core/eval true true) (flatten (:data binding-data)))))
+           (binding-callback
+            [binding-result]
+            (get-binding-data (:id binding-result) eval-content))]
+    (add-binding-named-item named-item (str "boot-" (rand-int 1000000)) binding-callback))))
 
 (println "cljs4excel ready..")

@@ -46,6 +46,7 @@ var app = (function () {
           style: 'display:none',
           load: function () {
             var content = $(this).contents().text();
+            cljs4excel.core.eval(false, true, "(require 'cljs4excel.core)");
             cljs4excel.core.eval(false, true, content);
             ifr.remove();
           }
