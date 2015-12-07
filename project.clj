@@ -1,4 +1,4 @@
-(defproject cljs4excel "0.2.0-SNAPSHOT"
+(defproject cljs4excel "0.2.1-SNAPSHOT"
   :description "ClojureScript REPL within Microsoft Excel"
 
   :url "https://www.cljs4excel.com"
