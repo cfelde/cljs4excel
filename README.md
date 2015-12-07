@@ -53,6 +53,11 @@ v0.2:
 * Included replumb work-around for (require ..)
 * Added (boot ..) function, used to eval content within sheet document
 
+v0.2.1:
+* Added "debug" REPL for running in browser outside Excel (repl-debug.html)
+* Added some flexibility on how get-binding-data, get-binding-details, set-binding-data! operate on arguments
+
+
 ## Related links
 
 Prepackaged cljs4excel: https://www.cljs4excel.com/.
