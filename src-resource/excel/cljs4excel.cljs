@@ -105,7 +105,25 @@
   [id matrix & rest]
   (.setBindingData js/app id (clj->js matrix))
   (if (= 2 (count (take 2 rest)))
-    (set-binding-data! (first rest) (second rest) (drop 2 rest))))
+    (apply set-binding-data! rest)))
+
+(defn fill-binding-data!
+  "Replace binding selection with given sequence data.
+  The sequence data is reshaped according to the binding area, and any missing
+  cells will be replaced with empty content. Multiple pairs of id and
+  sequence data my be given."
+  [id data & rest]
+  (letfn [(fill
+            [b]
+            (let [width (:cc b)
+                  size (* (:rc b) (:cc b))
+                  flat-data (take size (flatten data))
+                  empty-data (repeat (- size (count flat-data)) "")
+                  fill-data (vec (map vec (partition width (concat flat-data empty-data))))]
+              (set-binding-data! (:id b) fill-data)
+              (if (= 2 (count (take 2 rest)))
+                (apply fill-binding-data! rest))))]
+    (get-binding-details id fill)))
 
 (defn add-binding-data-event
   "Subscribe to data changes on binding id, passing it to given function

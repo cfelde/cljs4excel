@@ -56,6 +56,7 @@ v0.2:
 v0.2.1:
 * Added "debug" REPL for running in browser outside Excel (repl-debug.html)
 * Added some flexibility on how get-binding-data, get-binding-details, set-binding-data! operate on arguments
+* Added a fill-binding-data! function that takes any sequence and fills it into the shape of a binding.
 
 
 ## Related links
