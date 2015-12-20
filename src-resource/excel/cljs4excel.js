@@ -31,7 +31,6 @@ var app = (function () {
         $('#console').show();
       });
 
-      // After initialization, expose a common notification function
       app.showNotification = function (header, text) {
         $('#notification-message-header').text(header);
         $('#notification-message-body').text(text);
@@ -57,6 +56,7 @@ var app = (function () {
       app.showScratchpad = function () {
         $('#console').hide();
         $('#scratchpad').show();
+        $('#scratchpad-content').focus();
       };
 
       app.hideScratchpad = function () {
