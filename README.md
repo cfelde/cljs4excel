@@ -3,7 +3,7 @@ Run a ClojureScript REPL within Microsoft Excel.
 
 ![](https://www.cljs4excel.com/img/preview-1.gif)
 
-This is a bootstrapped ClojureScript as shown on http://clojurescript.net/
+This is a bootstrapped ClojureScript as shown on http://clojurescript.io/
 running within an Office Add-in, which is essentially a browser running within
 Microsoft Excel. Using Office.js and some JS->CLJS->JS code you can then
 interact with the Excel document from ClojureScript.
@@ -37,9 +37,8 @@ To add the XML manifest from a shared location in Excel, please see below link:
 
 https://msdn.microsoft.com/en-us/library/office/fp123503.aspx
 
-Consider this as an early alpha/proof of concept release at the moment. There
-are plenty of things I'd like to improve, so I'll put up a list of things
-we can work on soon.
+Consider this as beta software at the moment. There are plenty of things I'd
+like to improve, so I'll put up a list of things we can work on soon.
 
 ## Change log
 
