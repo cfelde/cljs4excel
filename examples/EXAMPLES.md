@@ -4,6 +4,11 @@
 
 ![](https://www.cljs4excel.com/examples/k-means/k-means.gif)
 
+## Conway's Game of Life
+
+![](https://www.cljs4excel.com/examples/conway/conway.gif)
+
+
 ### More examples
 
 More examples are always welcome, so follow this space as we add further.
