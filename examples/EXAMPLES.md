@@ -8,6 +8,9 @@
 
 ![](https://www.cljs4excel.com/examples/conway/conway.gif)
 
+## Real-time stock quotes and statistics
+
+![](https://www.cljs4excel.com/examples/realtime-quotes/realtime-quotes.gif)
 
 ### More examples
 
