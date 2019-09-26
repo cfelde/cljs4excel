@@ -1,7 +1,7 @@
 # cljs4excel
 Run a ClojureScript REPL within Microsoft Excel.
 
-![](https://www.cljs4excel.com/img/preview-1.gif)
+![](https://cfelde.github.io/cljs4excel/img/preview-1.gif)
 
 This is a bootstrapped ClojureScript as shown on http://clojurescript.io/
 running within an Office Add-in, which is essentially a browser running within
@@ -11,7 +11,7 @@ interact with the Excel document from ClojureScript.
 ## How to install locally
 
 If you just want to try it out I'd recommend following the steps as shown on
-https://www.cljs4excel.com. When you have that up and running the steps to run
+https://cfelde.github.io/cljs4excel/. When you have that up and running the steps to run
 with all local files would be these:
 
 1: Build the project with:
@@ -60,7 +60,7 @@ v0.2.1:
 
 ## Related links
 
-Prepackaged cljs4excel: https://www.cljs4excel.com/.
+Prepackaged cljs4excel: https://cfelde.github.io/cljs4excel/.
 
 Office Add-ins: https://msdn.microsoft.com/en-us/library/office/jj220060.aspx.
 
