@@ -2,15 +2,15 @@
 
 ## k-means clustering algorithm
 
-![](https://www.cljs4excel.com/examples/k-means/k-means.gif)
+![](https://cfelde.github.io/cljs4excel/examples/k-means/k-means.gif)
 
 ## Conway's Game of Life
 
-![](https://www.cljs4excel.com/examples/conway/conway.gif)
+![](https://cfelde.github.io/cljs4excel/examples/conway/conway.gif)
 
 ## Real-time stock quotes and statistics
 
-![](https://www.cljs4excel.com/examples/realtime-quotes/realtime-quotes.gif)
+![](https://cfelde.github.io/cljs4excel/examples/realtime-quotes/realtime-quotes.gif)
 
 ### More examples
 
